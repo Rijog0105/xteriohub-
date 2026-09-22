@@ -1,0 +1,302 @@
+[
+  {
+    "id": 171,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00171.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00171.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00171.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00171.jpg",
+    "brand": "tempio",
+    "material_name": "CUSTOM12",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO CUSTOM12 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 172,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00172.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00172.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00172.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00172.jpg",
+    "brand": "tempio",
+    "material_name": "CUSTOM11",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO CUSTOM11 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 173,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00173.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00173.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00173.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00173.jpg",
+    "brand": "tempio",
+    "material_name": "CUSTOM10",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO CUSTOM10 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 174,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00174.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00174.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00174.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00174.jpg",
+    "brand": "tempio",
+    "material_name": "CUSTOM1",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO CUSTOM1 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 175,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00175.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00175.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00175.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00175.jpg",
+    "brand": "tempio",
+    "material_name": "WHITE SEVILLA ES4220",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO WHITE SEVILLA ES4220 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 176,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00176.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00176.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00176.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00176.jpg",
+    "brand": "tempio",
+    "material_name": "WHITE PALMA ES4230 3",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO WHITE PALMA ES4230 3 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 177,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00177.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00177.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00177.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00177.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP WHITE SEVILLA ES4220",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP WHITE SEVILLA ES4220 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 178,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00178.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00178.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00178.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00178.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP WHITE PALMA ES4230 3",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP WHITE PALMA ES4230 3 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 179,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00179.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00179.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00179.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00179.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP MARFIL ES4250",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP MARFIL ES4250 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 180,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00180.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00180.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00180.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00180.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP GREY PRINCETON ES4182",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP GREY PRINCETON ES4182 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 181,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00181.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00181.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00181.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00181.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP GREY FOSTER ES4123",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP GREY FOSTER ES4123 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 182,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00182.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00182.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00182.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00182.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP GREY ARCADIA ES4155",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP GREY ARCADIA ES4155 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 183,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00183.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00183.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00183.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00183.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP BLACK COLUMBIA ES2187",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP BLACK COLUMBIA ES2187 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 184,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00184.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00184.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00184.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00184.jpg",
+    "brand": "tempio",
+    "material_name": "MARFIL ES4250",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO MARFIL ES4250 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 185,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00185.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00185.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00185.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00185.jpg",
+    "brand": "tempio",
+    "material_name": "GREY PRINCETON ES4182",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO GREY PRINCETON ES4182 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 186,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00186.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00186.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00186.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00186.jpg",
+    "brand": "tempio",
+    "material_name": "GREY FOSTER ES4123",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO GREY FOSTER ES4123 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 187,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00187.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00187.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00187.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00187.jpg",
+    "brand": "tempio",
+    "material_name": "GREY ARCADIA ES4155",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO GREY ARCADIA ES4155 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 188,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00188.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00188.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00188.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00188.jpg",
+    "brand": "tempio",
+    "material_name": "BLACK COLUMBIA ES2187",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO BLACK COLUMBIA ES2187 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 189,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00189.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00189.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00189.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00189.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP ROJO R40 24",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP ROJO R40 24 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 190,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00190.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00190.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00190.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00190.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP ROJO R15 20",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP ROJO R15 20 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 191,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00191.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00191.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00191.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00191.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP ROJO R10 18",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP ROJO R10 18 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 192,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00192.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00192.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00192.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00192.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP NEGRO B40",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP NEGRO B40 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 193,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00193.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00193.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00193.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00193.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP NEGRO B40 40",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP NEGRO B40 40 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 194,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00194.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00194.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00194.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00194.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP NEGRO B40 20",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP NEGRO B40 20 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 195,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00195.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00195.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00195.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00195.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP NARANJA NA06 15",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP NARANJA NA06 15 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 196,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00196.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00196.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00196.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00196.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP NARANJA NA06 06",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP NARANJA NA06 06 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 197,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00197.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00197.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00197.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00197.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP MARRON BR40 50",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP MARRON BR40 50 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 198,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00198.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00198.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00198.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00198.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP MARRON BR40 40",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP MARRON BR40 40 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 199,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00199.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00199.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00199.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00199.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP MARRON BR17 10",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP MARRON BR17 10 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  },
+  {
+    "id": 200,
+    "building_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\buildings\\building_00200.jpg",
+    "mask_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\masks\\mask_00200.png",
+    "material_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\materials\\material_00200.jpg",
+    "target_image": "D:\\Profile bkup\\Desktop\\plan web\\ai-model\\dataset\\target_renders\\target_00200.jpg",
+    "brand": "tempio",
+    "material_name": "TEMP GRIS GR25 25",
+    "prompt": "Professional architectural visualization of the same building with installed TEMPIO TEMP GRIS GR25 25 façade cladding panels, individual panels with authentic subtle joints, preserved windows, structural geometry, and natural architectural lighting."
+  }
+]

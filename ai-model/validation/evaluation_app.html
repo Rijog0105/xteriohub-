@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XTERIOHUB Custom Façade AI - Human Review & Evaluation</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: #0a0a0c;
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #e0e0e0;
+      --accent: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 30px; }
+    h1 { font-weight: 200; letter-spacing: 0.2em; text-transform: uppercase; font-size: 20px; margin-bottom: 25px; text-align: center; }
+    .container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 30px; }
+    .viewer { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+    .canvas-box { position: relative; width: 100%; aspect-ratio: 16/10; background: #000; border-radius: 8px; overflow: hidden; }
+    .canvas-box img { width: 100%; height: 100%; object-fit: contain; }
+    .overlay-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; }
+    .slider-bar { width: 100%; height: 4px; accent-color: white; margin-top: 10px; cursor: pointer; }
+    .sidebar { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 20px; }
+    .score-group { display: flex; flex-direction: column; gap: 6px; }
+    .score-group label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #888; }
+    .stars { display: flex; gap: 8px; }
+    .star-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #aaa; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; }
+    .star-btn.active { background: white; color: black; font-weight: bold; }
+    .btn-submit { background: white; color: black; border: none; padding: 12px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; margin-top: 10px; }
+    .btn-submit:hover { opacity: 0.9; }
+    .meta-box { font-family: monospace; font-size: 10px; color: #777; border-top: 1px solid var(--border); padding-top: 15px; }
+  </style>
+</head>
+<body>
+
+  <h1>XTERIOHUB Façade AI // Human Review Dashboard</h1>
+
+  <div class="container">
+    <!-- Visual Comparison Viewer -->
+    <div class="viewer">
+      <div class="canvas-box" id="canvasBox">
+        <img id="origImg" src="../../public/assets/Brands/tempio/projects/yarilla-palace.webp" alt="Original">
+        <img id="targetImg" src="../../public/assets/Brands/tempio/projects/yarilla-palace.webp" alt="Model Output" class="overlay-img" style="clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);">
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider-bar" id="slider" oninput="updateSlider(this.value)">
+      <div style="display: flex; justify-content: space-between; font-size: 10px; color: #777; font-family: monospace;">
+        <span>← ORIGINAL BUILDING</span>
+        <span>MODEL VISUALIZATION →</span>
+      </div>
+    </div>
+
+    <!-- Reviewer Scoring Controls -->
+    <div class="sidebar">
+      <h3 style="font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; font-size: 14px; border-bottom: 1px solid var(--border); pb-3;">Scoring Criteria (1–5)</h3>
+
+      <div class="score-group">
+        <label>1. Architecture Preserved</label>
+        <div class="stars" id="score_arch">
+          <button class="star-btn" onclick="setScore('arch', 1)">1</button>
+          <button class="star-btn" onclick="setScore('arch', 2)">2</button>
+          <button class="star-btn" onclick="setScore('arch', 3)">3</button>
+          <button class="star-btn" onclick="setScore('arch', 4)">4</button>
+          <button class="star-btn active" onclick="setScore('arch', 5)">5</button>
+        </div>
+      </div>
+
+      <div class="score-group">
+        <label>2. Material Accuracy</label>
+        <div class="stars" id="score_mat">
+          <button class="star-btn" onclick="setScore('mat', 1)">1</button>
+          <button class="star-btn" onclick="setScore('mat', 2)">2</button>
+          <button class="star-btn" onclick="setScore('mat', 3)">3</button>
+          <button class="star-btn active" onclick="setScore('mat', 4)">4</button>
+          <button class="star-btn" onclick="setScore('mat', 5)">5</button>
+        </div>
+      </div>
+
+      <div class="score-group">
+        <label>3. Panel Accuracy</label>
+        <div class="stars" id="score_panel">
+          <button class="star-btn" onclick="setScore('panel', 1)">1</button>
+          <button class="star-btn" onclick="setScore('panel', 2)">2</button>
+          <button class="star-btn" onclick="setScore('panel', 3)">3</button>
+          <button class="star-btn" onclick="setScore('panel', 4)">4</button>
+          <button class="star-btn active" onclick="setScore('panel', 5)">5</button>
+        </div>
+      </div>
+
+      <div class="score-group">
+        <label>4. Joint & Groove Realism</label>
+        <div class="stars" id="score_joint">
+          <button class="star-btn" onclick="setScore('joint', 1)">1</button>
+          <button class="star-btn" onclick="setScore('joint', 2)">2</button>
+          <button class="star-btn" onclick="setScore('joint', 3)">3</button>
+          <button class="star-btn" onclick="setScore('joint', 4)">4</button>
+          <button class="star-btn active" onclick="setScore('joint', 5)">5</button>
+        </div>
+      </div>
+
+      <div class="score-group">
+        <label>5. Photorealism & Lighting</label>
+        <div class="stars" id="score_photo">
+          <button class="star-btn" onclick="setScore('photo', 1)">1</button>
+          <button class="star-btn" onclick="setScore('photo', 2)">2</button>
+          <button class="star-btn" onclick="setScore('photo', 3)">3</button>
+          <button class="star-btn active" onclick="setScore('photo', 4)">4</button>
+          <button class="star-btn" onclick="setScore('photo', 5)">5</button>
+        </div>
+      </div>
+
+      <button class="btn-submit" onclick="saveEvaluation()">Save Evaluation Result →</button>
+
+      <div class="meta-box" id="savedLog">
+        STATUS: Ready for review.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const scores = { arch: 5, mat: 4, panel: 5, joint: 5, photo: 4 };
+
+    function updateSlider(val) {
+      document.getElementById('targetImg').style.clipPath = `polygon(${val}% 0, 100% 0, 100% 100%, ${val}% 100%)`;
+    }
+
+    function setScore(key, val) {
+      scores[key] = val;
+      const group = document.getElementById(`score_${key}`);
+      group.querySelectorAll('.star-btn').forEach((b, idx) => {
+        b.classList.toggle('active', idx + 1 === val);
+      });
+    }
+
+    function saveEvaluation() {
+      const record = {
+        timestamp: new Date().toISOString(),
+        scores,
+        overall: (scores.arch + scores.mat + scores.panel + scores.joint + scores.photo) / 5
+      };
+      const existing = JSON.parse(localStorage.getItem('xteriohub_ai_evaluations') || '[]');
+      existing.push(record);
+      localStorage.setItem('xteriohub_ai_evaluations', JSON.stringify(existing));
+      document.getElementById('savedLog').innerText = `✓ Recorded Evaluation #${existing.length} (Overall Score: ${record.overall.toFixed(1)}/5.0)`;
+    }
+  </script>
+</body>
+</html>

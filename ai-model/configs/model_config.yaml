@@ -1,0 +1,47 @@
+# XTERIOHUB Custom Façade AI - Model Architecture & Pipeline Configuration
+
+model:
+  foundation_model: "stabilityai/stable-diffusion-xl-base-1.0"
+  inpainting_base: "diffusers/stable-diffusion-xl-1.0-inpainting-0.1"
+  adapter_type: "LoRA + IP-Adapter (Multi-Conditioned Reference & Mask)"
+  lora_rank: 32
+  lora_alpha: 32
+  target_modules:
+    - "to_k"
+    - "to_q"
+    - "to_v"
+    - "to_out.0"
+  resolution: 1024
+  mixed_precision: "bf16" # or fp16
+
+training:
+  batch_size: 2
+  gradient_accumulation_steps: 4
+  learning_rate: 1e-4
+  lr_scheduler: "cosine_with_restarts"
+  lr_warmup_steps: 100
+  max_train_steps: 2000
+  checkpointing_steps: 250
+  validation_steps: 100
+  seed: 42
+  masked_loss_weight: 3.5     # Heavily penalizes errors inside the facade mask
+  unmasked_loss_weight: 0.1   # Enforces exact background & window preservation
+
+dataset:
+  train_split: 0.85
+  val_split: 0.15
+  image_size: 1024
+  max_samples: 5000
+  brands_included:
+    - "frontek"
+    - "techlam"
+    - "tempio"
+    - "steni"
+
+inference:
+  default_steps: 30
+  guidance_scale: 7.5
+  controlnet_conditioning_scale: 0.85
+  ip_adapter_scale: 0.80
+  output_format: "png"
+  max_concurrent_requests: 4

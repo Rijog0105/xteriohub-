@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000000;
+  --color-secondary: #0A0C10;
+  --color-card: #12151C;
+  --color-text: #FFFFFF;
+  --color-text-muted: #9CA3AF;
+  --color-accent: #0099E8;
+
+  --font-family-primary: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  --font-family-secondary: 'Inter', sans-serif;
+  --font-family-serif: 'Cormorant Garamond', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 90%;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 88%;
+  }
+}
+
+body {
+  font-family: var(--font-family-primary);
+  background-color: #000000;
+  color: #FFFFFF;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+}
+
+/* Global clean corporate typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-primary);
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  letter-spacing: -0.005em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+p {
+  word-spacing: 0.05em;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+span, a, li, div {
+  word-spacing: 0.04em;
+}
+
+/* Backgrounds */
+.bg-grid-dots {
+  background-image: radial-gradient(rgba(17,24,39,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bg-grid-dots-light {
+  background-image: radial-gradient(rgba(0,153,232,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-grid-lines {
+  background-image:
+    linear-gradient(rgba(17,24,39,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,24,39,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.bg-diagonal-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(0,153,232,0.025) 40px,
+    rgba(0,153,232,0.025) 41px
+  );
+}
+
+/* Custom Animations */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.bg-noise {
+  position: relative;
+}
+.bg-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(17, 24, 39, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 24, 39, 0.35);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
