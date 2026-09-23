@@ -254,65 +254,73 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-                className="fixed top-0 right-0 bottom-0 w-[90vw] max-w-[400px] z-[9999995] bg-[#07090e]/98 backdrop-blur-2xl border-l border-white/15 flex flex-col justify-between shadow-[0_0_90px_rgba(0,0,0,0.95)] overflow-hidden pointer-events-auto"
+                className="fixed top-0 right-0 bottom-0 w-full sm:w-[420px] z-[9999995] bg-[#07090e]/98 backdrop-blur-3xl border-l border-white/15 flex flex-col justify-between shadow-[0_0_90px_rgba(0,0,0,0.95)] overflow-hidden pointer-events-auto"
               >
-                {/* Top Bar of Drawer */}
-                <div className="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between shrink-0 bg-black/40">
+                {/* Top Bar of Drawer with Generous Margins */}
+                <div className="px-10 sm:px-14 py-9 border-b border-white/10 flex items-center justify-between shrink-0 bg-black/40">
                   <Link
                     to="/"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2"
+                    className="flex items-center"
                   >
-                    <img src={logoUrl} alt="XTERIOHUB" className="w-28 sm:w-32" />
+                    <img src={logoUrl} alt="XTERIOHUB" className="w-32 sm:w-36" />
                   </Link>
                   <button
                     type="button"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white text-lg hover:text-white hover:bg-white/20 active:scale-90 transition-all cursor-pointer touch-manipulation select-none"
+                    className="w-12 h-12 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white text-lg hover:text-white hover:bg-white/15 active:scale-90 transition-all cursor-pointer touch-manipulation select-none"
                     aria-label="Close menu"
                   >
                     ✕
                   </button>
                 </div>
 
-                {/* Scrollable Links Area - Exact Same Content as Laptop Navbar */}
+                {/* Scrollable Links Area - Generous Margins & Airy Line-Spacing matching Laptop */}
                 <div
                   data-lenis-prevent
-                  className="flex-1 overflow-y-auto overscroll-contain px-6 py-8 space-y-3 touch-pan-y"
+                  className="flex-1 overflow-y-auto overscroll-contain px-10 sm:px-14 py-12 touch-pan-y"
                   style={{ WebkitOverflowScrolling: 'touch' }}
                 >
-                  {/* Main Links - Identical to Desktop NAV_LINKS */}
-                  <div className="space-y-2">
+                  {/* Main Links with Generous Vertical Distance & Clean Line Spacing */}
+                  <div className="mt-2 space-y-9 sm:space-y-11">
                     <Link
                       to="/"
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "flex items-center justify-between py-3 px-3 rounded-lg font-secondary text-xs uppercase tracking-[0.2em] font-medium transition-colors touch-manipulation",
-                        location.pathname === '/' ? "text-white font-semibold bg-white/5" : "text-white/70 hover:text-white"
+                        "group flex items-center justify-between py-3 font-secondary text-[14px] sm:text-[15px] uppercase tracking-[0.28em] font-medium leading-loose transition-colors touch-manipulation relative",
+                        location.pathname === '/' ? "text-white font-semibold" : "text-white/70 hover:text-white"
                       )}
                     >
                       <span>HOME</span>
+                      <span className={cn(
+                        "h-[1.5px] bg-accent transition-all duration-300",
+                        location.pathname === '/' ? "w-8" : "w-0 group-hover:w-8"
+                      )} />
                     </Link>
 
                     <Link
                       to="/about"
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "flex items-center justify-between py-3 px-3 rounded-lg font-secondary text-xs uppercase tracking-[0.2em] font-medium transition-colors touch-manipulation",
-                        location.pathname === '/about' ? "text-white font-semibold bg-white/5" : "text-white/70 hover:text-white"
+                        "group flex items-center justify-between py-3 font-secondary text-[14px] sm:text-[15px] uppercase tracking-[0.28em] font-medium leading-loose transition-colors touch-manipulation relative",
+                        location.pathname === '/about' ? "text-white font-semibold" : "text-white/70 hover:text-white"
                       )}
                     >
                       <span>ABOUT</span>
+                      <span className={cn(
+                        "h-[1.5px] bg-accent transition-all duration-300",
+                        location.pathname === '/about' ? "w-8" : "w-0 group-hover:w-8"
+                      )} />
                     </Link>
 
-                    {/* OUR BRANDS Expandable Accordion */}
-                    <div className="rounded-lg border border-white/10 bg-white/[0.02] overflow-hidden my-2">
-                      <div className="flex items-center justify-between p-1">
+                    {/* OUR BRANDS Expandable Section with Clean, Spacious Layout */}
+                    <div className="py-3">
+                      <div className="flex items-center justify-between">
                         <Link
                           to="/brands"
                           onClick={() => setMobileMenuOpen(false)}
                           className={cn(
-                            "flex-1 py-2.5 px-3 font-secondary text-xs uppercase tracking-[0.2em] font-medium transition-colors touch-manipulation flex items-center gap-2",
+                            "group flex-1 font-secondary text-[14px] sm:text-[15px] uppercase tracking-[0.28em] font-medium leading-loose transition-colors touch-manipulation flex items-center gap-2",
                             location.pathname.startsWith('/brands') ? "text-white font-semibold" : "text-white/70 hover:text-white"
                           )}
                         >
@@ -321,13 +329,13 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                         <button
                           type="button"
                           onClick={() => setBrandsAccordionOpen(prev => !prev)}
-                          className="w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors cursor-pointer touch-manipulation"
+                          className="w-11 h-11 flex items-center justify-center text-white/60 hover:text-white transition-colors cursor-pointer touch-manipulation"
                           aria-label="Toggle brand sub-menu"
                         >
                           <motion.span
                             animate={{ rotate: brandsAccordionOpen ? 180 : 0 }}
                             transition={{ duration: 0.25 }}
-                            className="text-[10px]"
+                            className="text-xs"
                           >
                             ▼
                           </motion.span>
@@ -341,7 +349,7 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="px-3 pb-3 pt-1 space-y-2 border-t border-white/5"
+                            className="pt-6 pb-3 pl-6 space-y-7 border-l border-white/15 mt-4"
                           >
                             {[
                               { name: 'FRONTEK', path: '/brands/frontek' },
@@ -349,19 +357,19 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                               { name: 'STENI', path: '/brands/steni' },
                               { name: 'TECHLAM', path: '/brands/techlam' }
                             ].map(b => (
-                              <div key={b.name} className="p-2.5 rounded-md bg-black/40 border border-white/10 space-y-1.5">
+                              <div key={b.name} className="space-y-2">
                                 <Link
                                   to={b.path}
                                   onClick={() => setMobileMenuOpen(false)}
-                                  className="font-mono text-xs font-bold text-white hover:text-sky-400 tracking-wider transition-colors block py-0.5"
+                                  className="font-mono text-xs font-bold tracking-[0.28em] text-neutral-300 hover:text-white transition-colors uppercase block py-1"
                                 >
                                   {b.name}
                                 </Link>
-                                <div className="flex items-center gap-3 pt-1 border-t border-white/5 flex-wrap">
+                                <div className="flex items-center gap-4 pt-1">
                                   <Link
                                     to={`${b.path}/collections`}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="font-mono text-[10px] text-zinc-400 hover:text-white uppercase tracking-wider py-0.5"
+                                    className="font-mono text-[11px] tracking-widest text-neutral-400 hover:text-white transition-colors uppercase py-1"
                                   >
                                     Collections
                                   </Link>
@@ -369,7 +377,7 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                                   <Link
                                     to={`${b.path}/projects`}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="font-mono text-[10px] text-zinc-400 hover:text-white uppercase tracking-wider py-0.5"
+                                    className="font-mono text-[11px] tracking-widest text-neutral-400 hover:text-white transition-colors uppercase py-1"
                                   >
                                     Projects
                                   </Link>
@@ -385,19 +393,23 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                       to="/contact"
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "flex items-center justify-between py-3 px-3 rounded-lg font-secondary text-xs uppercase tracking-[0.2em] font-medium transition-colors touch-manipulation",
-                        location.pathname === '/contact' ? "text-white font-semibold bg-white/5" : "text-white/70 hover:text-white"
+                        "group flex items-center justify-between py-3 font-secondary text-[14px] sm:text-[15px] uppercase tracking-[0.28em] font-medium leading-loose transition-colors touch-manipulation relative",
+                        location.pathname === '/contact' ? "text-white font-semibold" : "text-white/70 hover:text-white"
                       )}
                     >
                       <span>CONTACT</span>
+                      <span className={cn(
+                        "h-[1.5px] bg-accent transition-all duration-300",
+                        location.pathname === '/contact' ? "w-8" : "w-0 group-hover:w-8"
+                      )} />
                     </Link>
                   </div>
 
-                  {/* Desktop-Identical Consultation CTA Button */}
-                  <div className="pt-6">
+                  {/* Desktop-Identical Consultation CTA Button with Ample Margin */}
+                  <div className="mt-16 sm:mt-20 pt-8 border-t border-white/10">
                     <button
                       onClick={handleConsultationClick}
-                      className="w-full h-[46px] rounded-full font-secondary text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 active:scale-95 shadow-lg cursor-pointer bg-white text-black hover:bg-accent hover:text-white"
+                      className="w-full h-[50px] rounded-full font-secondary text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 active:scale-95 shadow-lg cursor-pointer bg-white text-black hover:bg-accent hover:text-white hover:shadow-[0_0_25px_rgba(0,153,232,0.5)]"
                     >
                       Consultation
                     </button>

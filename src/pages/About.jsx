@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const spring = { type: "spring", stiffness: 100, damping: 20 };
@@ -17,8 +17,18 @@ const fadeInScale = {
 
 export default function About() {
   const heroRef = useRef(null);
-  const [hoveredCardIndex, setHoveredCardIndex] = useState(0);
-  const [mobileExpandedCard, setMobileExpandedCard] = useState(null); // All cards closed by default on phone
+  // All cards remain closed in stack until clicked
+  const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const { scrollYProgress: heroScroll } = useScroll({
     target: heroRef,
@@ -771,7 +781,7 @@ export default function About() {
       </div>
 
       {/* ========================================================
-          SECTION 7: WHY CLIENTS CHOOSE XTERIOHUB (3D STACKED DECK WITH HOVER IN-PLACE EXPANSION)
+          SECTION 7: WHY CLIENTS CHOOSE XTERIOHUB (3D STACKED DECK)
          ======================================================== */}
       <section className="relative py-12 sm:py-16 lg:py-28 bg-transparent z-10 overflow-hidden">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 flex flex-col items-center text-center">
@@ -784,237 +794,156 @@ export default function About() {
             <h2 className="font-primary text-2xl md:text-3xl lg:text-4xl font-extralight text-zinc-200 tracking-tight text-center w-full">
               Why Clients Choose XTERIOHUB
             </h2>
-            <p className="font-secondary text-xs md:text-sm text-white/60 font-light mt-2 tracking-widest uppercase hidden md:block">
-              Hover over side tabs in the 3D deck to expand feature details in place
-            </p>
-            <p className="font-secondary text-xs text-white/60 font-light mt-2 tracking-widest uppercase md:hidden">
-              Swipe right to browse • Tap card to open details
+            <p className="font-secondary text-xs md:text-sm text-white/60 font-light mt-2 tracking-widest uppercase">
+              Tap or hover cards in the 3D stack to expand feature details
             </p>
             <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mt-4" />
           </div>
 
-          {/* ========================================================
-              MOBILE SWIPEABLE TRACK (md:hidden)
-              Everything closed by default, click/tap to open, swipe right scrollable
-             ======================================================== */}
-          <div className="md:hidden w-full">
-            <div 
-              data-lenis-prevent
-              className="w-full flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 py-4 no-scrollbar touch-pan-x"
-              style={{ WebkitOverflowScrolling: 'touch' }}
-            >
-              {WHY_CHOOSE_US.map((item, idx) => {
-                const total = WHY_CHOOSE_US.length;
-                const isOpen = mobileExpandedCard === idx;
+          {/* Unified 3D Stacked Deck (Identical on Laptop and Phone, Closed until Clicked) */}
+          <div 
+            data-lenis-prevent
+            className="w-full max-w-[1400px] mx-auto overflow-x-auto no-scrollbar py-6 px-2 sm:px-4 touch-pan-x flex items-center justify-start md:justify-center"
+            style={{ WebkitOverflowScrolling: 'touch', marginTop: "10px" }}
+          >
+            {(() => {
+              const total = WHY_CHOOSE_US.length;
+              const step = isMobile ? 38 : 72;
+              const collapsedWidth = isMobile ? 68 : 125;
+              const expandedWidth = isMobile ? 300 : 560;
+              const cardHeight = isMobile ? 390 : 440;
 
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => setMobileExpandedCard(isOpen ? null : idx)}
-                    className={`shrink-0 w-[84vw] max-w-[320px] snap-center rounded-3xl border ${
-                      isOpen 
-                        ? 'border-sky-400/60 bg-[#090b10]/95 shadow-[0_15px_40px_rgba(0,153,232,0.25)]' 
-                        : 'border-white/15 bg-[#090b10]/80 shadow-xl'
-                    } backdrop-blur-2xl p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300 cursor-pointer min-h-[340px] text-left`}
-                  >
-                    {/* Card Background Image */}
-                    <div className="absolute inset-0 z-0">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className={`w-full h-full object-cover transition-all duration-500 ${
-                          isOpen ? 'opacity-40 scale-105' : 'opacity-20'
-                        }`}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/40 pointer-events-none" />
-                    </div>
+              const totalTrackWidth = hoveredCardIndex === null 
+                ? (total - 1) * step + collapsedWidth + (isMobile ? 24 : 60)
+                : (total - 2) * step + expandedWidth + collapsedWidth + (isMobile ? 36 : 80);
 
-                    {/* Top Tag Row */}
-                    <div className="relative z-10 flex items-center justify-between w-full">
-                      <span className="px-3 py-1 rounded-full bg-black/70 border border-white/20 font-mono text-[10px] font-bold text-gray-200">
-                        07.{idx + 1} // FEATURE
-                      </span>
-                      <span className="font-mono text-[10px] text-white/50">
-                        {idx + 1} of {total}
-                      </span>
-                    </div>
+              return (
+                <div 
+                  className="relative flex items-center justify-start perspective-[1400px] shrink-0 mx-auto"
+                  style={{ 
+                    width: `${totalTrackWidth}px`, 
+                    height: `${cardHeight + 20}px` 
+                  }}
+                >
+                  {WHY_CHOOSE_US.map((item, idx) => {
+                    const isSelected = hoveredCardIndex === idx;
 
-                    {/* Middle Content */}
-                    <div className="relative z-10 my-auto pt-4 pb-2">
-                      <h3 className="font-primary text-xl font-medium text-white mb-2 leading-snug tracking-tight">
-                        {item.title}
-                      </h3>
+                    // Calculate 3D Offset Position
+                    let xTranslate = 0;
+                    if (hoveredCardIndex === null || idx <= hoveredCardIndex) {
+                      xTranslate = idx * step;
+                    } else {
+                      xTranslate = hoveredCardIndex * step + expandedWidth + (idx - hoveredCardIndex - 1) * step;
+                    }
 
-                      {/* Expandable Description - CLOSED by default */}
-                      <AnimatePresence>
-                        {isOpen && (
-                          <motion.p
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="font-secondary text-xs text-white/90 font-light leading-relaxed pt-3 border-t border-white/15"
-                          >
-                            {item.desc}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                    </div>
+                    const widthVal = isSelected ? expandedWidth : collapsedWidth;
+                    const zIndexVal = isSelected ? 50 : (total - idx + 10);
+                    const scaleVal = isSelected ? 1 : 0.95;
 
-                    {/* Bottom Action Hint */}
-                    <div className="relative z-10 pt-3 border-t border-white/10 flex items-center justify-between">
-                      <span className="font-mono text-[10px] tracking-wider text-sky-400 font-semibold uppercase">
-                        {isOpen ? 'Tap to close ↑' : 'Tap to open details ↓'}
-                      </span>
-                      <span className="text-white/40 text-xs">
-                        {isOpen ? '▲' : '▼'}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Mobile Swipe Navigation Dots */}
-            <div className="flex items-center justify-center gap-2 mt-4">
-              {WHY_CHOOSE_US.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setMobileExpandedCard(mobileExpandedCard === i ? null : i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    mobileExpandedCard === i
-                      ? 'w-6 bg-sky-400'
-                      : 'w-1.5 bg-white/30'
-                  }`}
-                  aria-label={`Select card ${i + 1}`}
-                />
-              ))}
-            </div>
-            <p className="font-mono text-[9px] text-white/40 tracking-widest uppercase mt-2">
-              Swipe right for more →
-            </p>
-          </div>
-
-          {/* ========================================================
-              DESKTOP 3D STACKED DECK (hidden md:flex) - Preserved exactly as desktop
-             ======================================================== */}
-          <div className="hidden md:flex relative w-full max-w-[1400px] mx-auto h-[480px] md:h-[520px] items-center justify-center py-6 px-4" style={{ marginTop: "10px" }}>
-            <div className="relative w-[1150px] max-w-[95vw] h-[420px] md:h-[450px] flex items-center justify-start perspective-[1400px]">
-              {WHY_CHOOSE_US.map((item, idx) => {
-                const total = WHY_CHOOSE_US.length;
-                const isHovered = hoveredCardIndex === idx;
-
-                // Calculate 3D Offset Position
-                // If a card before idx is hovered, shift idx right to make room for expanded hovered card!
-                let xTranslate = 0;
-                if (hoveredCardIndex === null || idx <= hoveredCardIndex) {
-                  xTranslate = idx * 72;
-                } else {
-                  // hoveredCardIndex < idx: shift by 460px extra
-                  xTranslate = hoveredCardIndex * 72 + 520 + (idx - hoveredCardIndex - 1) * 72;
-                }
-
-                const widthVal = isHovered ? 560 : 125;
-                const zIndexVal = isHovered ? 50 : (total - idx + 10);
-                const scaleVal = isHovered ? 1 : 0.95;
-
-                return (
-                  <motion.div
-                    key={idx}
-                    onMouseEnter={() => setHoveredCardIndex(idx)}
-                    onClick={() => setHoveredCardIndex(idx)}
-                    animate={{
-                      x: xTranslate,
-                      width: widthVal,
-                      scale: scaleVal,
-                      opacity: 1,
-                      zIndex: zIndexVal,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 140,
-                      damping: 20,
-                      mass: 0.8
-                    }}
-                    className={`absolute top-0 left-0 ${
-                      isHovered 
-                        ? 'border-white/40 shadow-[0_25px_60px_rgba(255,255,255,0.2)] bg-black/90' 
-                        : 'border-white/20 shadow-xl bg-black/85 hover:border-white/50'
-                    } h-[410px] md:h-[440px] rounded-3xl border backdrop-blur-2xl p-6 md:p-8 cursor-pointer overflow-hidden flex flex-col justify-between transition-colors duration-300`}
-                  >
-                    {/* Background Image */}
-                    <div className="absolute inset-0 z-0">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className={`w-full h-full object-cover transition-all duration-500 ${
-                          isHovered ? 'opacity-80 scale-105' : 'opacity-35'
-                        }`}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
-                    </div>
-
-                    {/* EXPANDED FULL CARD CONTENT (Visible when hovered in place) */}
-                    {isHovered ? (
-                      <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.2 }}
-                        className="relative z-10 h-full flex flex-col justify-between items-start text-left w-full min-w-[320px] md:min-w-[480px]"
+                    return (
+                      <motion.div
+                        key={idx}
+                        onMouseEnter={() => {
+                          if (!isMobile) setHoveredCardIndex(idx);
+                        }}
+                        onClick={() => {
+                          // Tap / Click toggles open or closed
+                          setHoveredCardIndex(prev => prev === idx ? null : idx);
+                        }}
+                        animate={{
+                          x: xTranslate,
+                          width: widthVal,
+                          scale: scaleVal,
+                          opacity: 1,
+                          zIndex: zIndexVal,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 140,
+                          damping: 20,
+                          mass: 0.8
+                        }}
+                        style={{ height: `${cardHeight}px` }}
+                        className={`absolute top-0 left-0 ${
+                          isSelected 
+                            ? 'border-white/40 shadow-[0_25px_60px_rgba(255,255,255,0.2)] bg-black/90' 
+                            : 'border-white/20 shadow-xl bg-black/85 hover:border-white/50'
+                        } rounded-3xl border backdrop-blur-2xl p-5 sm:p-6 md:p-8 cursor-pointer overflow-hidden flex flex-col justify-between transition-colors duration-300 select-none touch-manipulation`}
                       >
-                        <div className="flex justify-between items-center w-full">
-                          <span className="px-3.5 py-1 rounded-full bg-black/70 border border-white/30 font-mono text-[10px] font-bold text-gray-200 shadow">
-                            07.{idx + 1} // FEATURE
-                          </span>
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono text-[10px] tracking-widest text-white/70">
-                              {idx + 1} / {total}
-                            </span>
-                            <span className="w-2.5 h-2.5 rounded-full bg-white animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.6)]" />
-                          </div>
+                        {/* Background Image */}
+                        <div className="absolute inset-0 z-0">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className={`w-full h-full object-cover transition-all duration-500 ${
+                              isSelected ? 'opacity-80 scale-105' : 'opacity-35'
+                            }`}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
                         </div>
 
-                        <div className="flex flex-col items-start text-left mt-auto">
-                          <h3 className="font-primary text-2xl md:text-3xl font-medium text-white mb-3 tracking-tight drop-shadow-md">
-                            {item.title}
-                          </h3>
-                          <p className="font-secondary text-xs md:text-sm text-white/90 font-light leading-relaxed max-w-lg drop-shadow">
-                            {item.desc}
-                          </p>
-                        </div>
+                        {/* EXPANDED FULL CARD CONTENT (When clicked / opened) */}
+                        {isSelected ? (
+                          <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.2 }}
+                            className="relative z-10 h-full flex flex-col justify-between items-start text-left w-full"
+                          >
+                            <div className="flex justify-between items-center w-full">
+                              <span className="px-3 sm:px-3.5 py-1 rounded-full bg-black/70 border border-white/30 font-mono text-[9px] sm:text-[10px] font-bold text-gray-200 shadow">
+                                07.{idx + 1} // FEATURE
+                              </span>
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-white/70">
+                                  {idx + 1} / {total}
+                                </span>
+                                <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-white animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.6)]" />
+                              </div>
+                            </div>
+
+                            <div className="flex flex-col items-start text-left mt-auto">
+                              <h3 className="font-primary text-lg sm:text-2xl md:text-3xl font-medium text-white mb-2 md:mb-3 tracking-tight drop-shadow-md">
+                                {item.title}
+                              </h3>
+                              <p className="font-secondary text-xs sm:text-xs md:text-sm text-white/90 font-light leading-relaxed max-w-lg drop-shadow">
+                                {item.desc}
+                              </p>
+                            </div>
+                          </motion.div>
+                        ) : (
+                          /* RESTING SIDE-TAB VIEW (Visible when resting closed in 3D stack) */
+                          <div className="relative z-10 h-full flex flex-col items-center justify-between py-4 px-1 w-full text-center">
+                            <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-black/70 border border-white/30 font-mono text-[9px] sm:text-[10px] font-bold text-gray-200 shadow">
+                              07.{idx + 1}
+                            </span>
+                            <div className="rotate-[-90deg] whitespace-nowrap font-primary text-[11px] sm:text-xs tracking-[0.18em] sm:tracking-[0.2em] font-light text-white/90 uppercase">
+                              {item.title}
+                            </div>
+                            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-white/70 shadow-[0_0_6px_rgba(255,255,255,0.4)]" />
+                          </div>
+                        )}
                       </motion.div>
-                    ) : (
-                      /* RESTING SIDE-TAB VIEW (Visible when resting in 3D stack) */
-                      <div className="relative z-10 h-full flex flex-col items-center justify-between py-4 px-1 w-full text-center">
-                        <span className="px-2.5 py-1 rounded-full bg-black/70 border border-white/30 font-mono text-[10px] font-bold text-gray-200 shadow">
-                          07.{idx + 1}
-                        </span>
-                        <div className="rotate-[-90deg] whitespace-nowrap font-primary text-xs tracking-[0.2em] font-light text-white/90 uppercase">
-                          {item.title}
-                        </div>
-                        <span className="w-2 h-2 rounded-full bg-white/70 shadow-[0_0_6px_rgba(255,255,255,0.4)]" />
-                      </div>
-                    )}
-                  </motion.div>
-                );
-              })}
-            </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
           </div>
 
-          {/* Desktop Indicator Navigation Dots */}
-          <div className="hidden md:flex items-center justify-center gap-2.5 mt-8 z-20">
+          {/* Indicator Navigation Dots */}
+          <div className="flex items-center justify-center gap-2.5 mt-8 z-20">
             {WHY_CHOOSE_US.map((_, i) => (
               <button
                 key={i}
-                onMouseEnter={() => setHoveredCardIndex(i)}
-                onClick={() => setHoveredCardIndex(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                type="button"
+                onClick={() => setHoveredCardIndex(prev => prev === i ? null : i)}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   hoveredCardIndex === i 
                     ? 'w-8 bg-white shadow-[0_0_10px_rgba(255,255,255,0.6)]' 
                     : 'w-2 bg-white/30 hover:bg-white/60'
                 }`}
-                aria-label={`Go to feature ${i + 1}`}
+                aria-label={`Toggle feature card ${i + 1}`}
               />
             ))}
           </div>
