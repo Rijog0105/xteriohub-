@@ -63,15 +63,15 @@ export default function Technology() {
 
 
       {/* Main Container */}
-      <div className="relative z-10 max-w-[1500px] mx-auto px-6 md:px-16 lg:px-24 pt-44 md:pt-56 pb-32">
+      <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-8 md:px-16 lg:px-24 pt-28 sm:pt-40 md:pt-52 pb-20 sm:pb-32">
         
         {/* Editorial Header */}
-        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-28">
+        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-16 sm:mb-24 md:mb-28">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-mono text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sky-400 mb-6 block"
+            className="font-mono text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.35em] sm:tracking-[0.4em] uppercase text-sky-400 mb-4 sm:mb-6 block"
           >
             FAÇADE ENGINEERING // SURFACE SCIENCE
           </motion.span>
@@ -80,7 +80,7 @@ export default function Technology() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="font-primary font-light text-4xl sm:text-6xl md:text-7xl tracking-tight text-white leading-tight mb-8"
+            className="font-primary font-light text-3xl sm:text-5xl md:text-7xl tracking-tight text-white leading-tight mb-6 sm:mb-8"
           >
             Advanced <span className="font-serif italic font-normal text-white/90">Façade Technologies</span>
           </motion.h1>
@@ -89,14 +89,14 @@ export default function Technology() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-secondary text-base md:text-lg text-white/75 font-light leading-relaxed max-w-2xl"
+            className="font-secondary text-sm sm:text-base md:text-lg text-white/75 font-light leading-relaxed max-w-2xl px-2"
           >
             Delivering next-generation material science, thermal insulation, hidden structural anchorage, and extreme environmental durability across high-rise building envelopes.
           </motion.p>
         </div>
 
         {/* Technology Highlights Grid */}
-        <div className="space-y-32 md:space-y-44">
+        <div className="space-y-16 sm:space-y-24 md:space-y-36">
           {TECH_HIGHLIGHTS.map((tech, idx) => {
             const isEven = idx % 2 === 0;
 
@@ -107,7 +107,7 @@ export default function Technology() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.9, delay: 0.1 }}
-                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 lg:gap-24 items-center`}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 sm:gap-12 lg:gap-20 items-center`}
               >
                 {/* Image Showcase */}
                 <div className="w-full lg:w-1/2 aspect-[16/11] rounded-3xl overflow-hidden border border-white/15 relative group shadow-2xl hover:border-sky-400/60 transition-all duration-500">

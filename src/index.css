@@ -133,3 +133,12 @@ span, a, li, div {
   background-color: var(--color-accent);
   color: white;
 }
+
+/* Hide scrollbar for smooth horizontal touch swipe lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

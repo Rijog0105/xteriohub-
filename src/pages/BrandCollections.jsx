@@ -65,44 +65,54 @@ function PanelViewer({ selected, brandId, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onMouseDown={event => event.target === event.currentTarget && onClose()}
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#020407]/85 p-5 backdrop-blur-lg"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#020407]/85 p-4 sm:p-6 backdrop-blur-lg overflow-y-auto"
         >
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.35, ease }}
-            className="grid w-full max-w-3xl overflow-hidden rounded-3xl border border-white/15 bg-[#090f18] shadow-[0_30px_100px_rgba(0,0,0,0.7)] md:grid-cols-[280px_1fr]"
+            className="grid w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/15 bg-[#090f18] shadow-[0_30px_100px_rgba(0,0,0,0.7)] md:grid-cols-[280px_1fr] relative my-auto"
           >
-            <div className="flex min-h-[300px] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(14,116,144,0.2),transparent_65%)] p-10">
-              <div className="aspect-[3/4] w-full max-w-[170px] overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl">
+            {/* Quick Mobile Close Button */}
+            <button
+              type="button"
+              onClick={onClose}
+              className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center font-mono text-xs cursor-pointer md:hidden backdrop-blur-md"
+              aria-label="Close panel view"
+            >
+              ✕
+            </button>
+
+            <div className="flex min-h-[220px] md:min-h-[300px] items-center justify-center bg-[radial-gradient(circle_at_center,rgba(14,116,144,0.2),transparent_65%)] p-6 sm:p-10">
+              <div className="aspect-[3/4] w-full max-w-[140px] sm:max-w-[170px] overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl">
                 <img src={selected.image} alt={title} className="h-full w-full object-cover" />
               </div>
             </div>
 
-            <div className="p-7 md:p-9 flex flex-col justify-between">
+            <div className="p-6 sm:p-7 md:p-9 flex flex-col justify-between">
               <div>
                 <span className="font-mono text-[9px] tracking-[0.22em] text-sky-400 uppercase">
                   {selected.category}
                 </span>
-                <h2 className="mt-3 font-primary text-3xl font-light text-white uppercase tracking-wide">
+                <h2 className="mt-2 sm:mt-3 font-primary text-2xl sm:text-3xl font-light text-white uppercase tracking-wide">
                   {title}
                 </h2>
-                <p className="mt-4 font-secondary text-sm leading-6 text-white/60">
+                <p className="mt-3 sm:mt-4 font-secondary text-xs sm:text-sm leading-6 text-white/60">
                   High-performance architectural façade cladding panel. Available for physical project specification and material samples.
                 </p>
 
                 {selected.dimensionImage && (
-                  <div className="mt-6 border-t border-white/10 pt-5">
-                    <p className="font-mono text-[9px] tracking-[0.2em] text-white/45 uppercase mb-3">TECHNICAL DIMENSIONS</p>
+                  <div className="mt-5 sm:mt-6 border-t border-white/10 pt-4 sm:pt-5">
+                    <p className="font-mono text-[9px] tracking-[0.2em] text-white/45 uppercase mb-2 sm:mb-3">TECHNICAL DIMENSIONS</p>
                     <div className="rounded-xl border border-white/10 bg-black p-3 shadow-inner">
-                      <img src={selected.dimensionImage} alt={`${selected.category} dimensions`} className="max-h-36 w-full bg-black object-contain brightness-110 contrast-125" />
+                      <img src={selected.dimensionImage} alt={`${selected.category} dimensions`} className="max-h-32 sm:max-h-36 w-full bg-black object-contain brightness-110 contrast-125" />
                     </div>
                   </div>
                 )}
               </div>
 
-              <div className="mt-8 flex items-center gap-4 flex-wrap pt-4 border-t border-white/10">
+              <div className="mt-6 sm:mt-8 flex items-center gap-4 flex-wrap pt-4 border-t border-white/10">
                 <button
                   type="button"
                   onClick={onClose}
@@ -139,8 +149,8 @@ export default function BrandCollections() {
   if (!brand) return <Navigate to="/brands/frontek" replace />;
 
   return (
-    <div onMouseMove={handleMouseMove} className="brand-collections-page relative min-h-screen overflow-hidden bg-black pb-48 md:pb-64 lg:pb-72 text-white selection:bg-white selection:text-black">
-      <style>{` .brand-collections-page header { position: relative; margin-top: 2rem !important; margin-bottom: 6rem !important; border-bottom: 0 !important; } .brand-collections-page header::after { content: ''; position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: rgba(255,255,255,0.1); } .brand-collections-page h2, .brand-collections-page h3 { text-transform: uppercase; } .brand-collections-page header p { display: none; } .brand-collections-page section + section { margin-top: 8rem !important; } @media (min-width: 768px) { .brand-collections-page header::after { transform: translateX(3vw); } .brand-collections-page header > span { display: inline-block; transform: translateX(3vw); } .brand-collections-page header h1 { transform: translateX(3vw); } .brand-collections-page section:nth-child(odd) { transform: translateX(-5vw); } .brand-collections-page section:nth-child(even) { transform: translateX(12vw); } .brand-collections-page section > div:first-child { transform: none !important; } }`}</style>
+    <div onMouseMove={handleMouseMove} className="brand-collections-page relative min-h-screen overflow-hidden bg-black pb-28 sm:pb-48 md:pb-64 text-white selection:bg-white selection:text-black">
+      <style>{` .brand-collections-page header { position: relative; margin-top: 1rem !important; margin-bottom: 3rem !important; border-bottom: 0 !important; } .brand-collections-page header::after { content: ''; position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: rgba(255,255,255,0.1); } .brand-collections-page h2, .brand-collections-page h3 { text-transform: uppercase; } .brand-collections-page header p { display: none; } .brand-collections-page section + section { margin-top: 5rem !important; } @media (min-width: 768px) { .brand-collections-page header { margin-top: 2rem !important; margin-bottom: 6rem !important; } .brand-collections-page section + section { margin-top: 8rem !important; } .brand-collections-page header::after { transform: translateX(3vw); } .brand-collections-page header > span { display: inline-block; transform: translateX(3vw); } .brand-collections-page header h1 { transform: translateX(3vw); } .brand-collections-page section:nth-child(odd) { transform: translateX(-5vw); } .brand-collections-page section:nth-child(even) { transform: translateX(12vw); } .brand-collections-page section > div:first-child { transform: none !important; } }`}</style>
       
       {/* PURE BLACK THEME WITH DYNAMIC SPOTLIGHT TORCH BEAM FOLLOWING CURSOR */}
       <div 
@@ -151,23 +161,50 @@ export default function BrandCollections() {
       />
       <div className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:72px_72px]" />
       
-      {/* Explicit Top Clearance Spacer Below Floating Top Navbar */}
-      <div style={{ height: '140px', minHeight: '140px' }} className="w-full block shrink-0 pointer-events-none" />
+      {/* Top Clearance Spacer Below Floating Top Navbar */}
+      <div className="w-full h-24 sm:h-32 md:h-[130px] shrink-0 pointer-events-none" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center overflow-x-hidden px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center overflow-x-hidden px-4 sm:px-8 md:px-12 lg:px-20">
 
-        <header className="mx-auto mb-24 mt-8 max-w-4xl border-b border-white/10 pb-12 text-center md:translate-x-[1vw]">
-          <h1 className="font-primary text-5xl font-light tracking-tight text-white md:text-7xl">Collections & <span className="italic text-white/65">Finishes</span></h1>
-          <p className="mx-auto mt-6 max-w-2xl font-secondary text-sm leading-7 text-white/60 md:text-base">Browse the {brand.name} material library by category. Select any panel to inspect its technical dimensions and physical specifications.</p>
+        <header className="mx-auto mb-16 md:mb-24 mt-4 md:mt-8 max-w-4xl border-b border-white/10 pb-8 md:pb-12 text-center md:translate-x-[1vw]">
+          <h1 className="font-primary text-3xl sm:text-5xl md:text-7xl font-light tracking-tight text-white">Collections & <span className="italic text-white/65">Finishes</span></h1>
+          <p className="mx-auto mt-4 md:mt-6 max-w-2xl font-secondary text-xs sm:text-sm md:text-base leading-6 md:leading-7 text-white/60">Browse the {brand.name} material library by category. Select any panel to inspect its technical dimensions and physical specifications.</p>
         </header>
 
-        <div className="w-full space-y-32 lg:space-y-40">
+        <div className="w-full space-y-20 md:space-y-32 lg:space-y-40">
           {categories.map((category) => (
             <section key={category.name} className="mx-auto w-full max-w-[1120px]">
-              <div className="mb-10 flex flex-col items-center gap-3 border-b border-white/10 pb-6 text-center md:translate-x-[3vw]">
-                <h2 className="font-primary text-2xl font-extralight text-zinc-200 md:text-3xl tracking-tight">{category.name}</h2>
+              <div className="mb-6 md:mb-10 flex flex-col items-center gap-2 md:gap-3 border-b border-white/10 pb-4 md:pb-6 text-center md:translate-x-[3vw]">
+                <h2 className="font-primary text-xl sm:text-2xl md:text-3xl font-extralight text-zinc-200 tracking-tight">{category.name}</h2>
               </div>
-              <div className="mx-auto w-full max-w-[75vw] space-y-12 overflow-visible px-10 pb-5 pt-5">
+
+              {/* Mobile Touch-Friendly Grid (md:hidden) */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 md:hidden w-full max-w-md mx-auto">
+                {category.items.map((item) => (
+                  <div
+                    key={item.key}
+                    onClick={() => setSelected({ ...item, category: category.name, dimensionImage: category.dimensionImage })}
+                    className="group relative flex flex-col rounded-xl border border-white/15 bg-[#070708]/95 overflow-hidden shadow-lg active:scale-95 transition-transform cursor-pointer"
+                  >
+                    <div className="relative aspect-square w-full overflow-hidden bg-[#040609]">
+                      <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#020407] via-transparent to-transparent" />
+                    </div>
+                    <div className="p-2.5 flex items-center justify-between gap-1">
+                      <div className="truncate">
+                        <h3 className="truncate font-primary text-xs font-light text-white">
+                          {!isGenericName(item.name) ? item.name : 'Panel'}
+                        </h3>
+                        <span className="font-mono text-[8px] tracking-wider text-sky-400">PANEL</span>
+                      </div>
+                      <span className="font-mono text-[8px] text-white/60 shrink-0">VIEW →</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop Floating Deck with Overlapping Offset (hidden md:block) */}
+              <div className="hidden md:block mx-auto w-full max-w-[75vw] space-y-12 overflow-visible px-10 pb-5 pt-5">
                 {makeRows(category.items).map((row, rowIndex) => (
                   <div key={`${category.name}-${rowIndex}`} style={{ transform: `translateX(${Math.max(0, row.length - 1) * 18}px)` }} className="flex justify-center overflow-visible">
                     {row.map((item, index) => (
@@ -186,7 +223,7 @@ export default function BrandCollections() {
         </div>
 
         {/* Generous Bottom Clearance Spacer Before Footer */}
-        <div style={{ height: '220px', minHeight: '220px' }} className="w-full block shrink-0 pointer-events-none" />
+        <div className="w-full h-24 sm:h-36 md:h-56 shrink-0 pointer-events-none" />
 
       </div>
       <PanelViewer

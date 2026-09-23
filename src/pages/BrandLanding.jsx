@@ -112,10 +112,10 @@ export default function BrandLanding() {
       {/* ========================================================
           HERO SECTION: Strictly Below Floating Navbar
          ======================================================== */}
-      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden z-10 pt-44 md:pt-56 lg:pt-64 pb-44">
+      <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden z-10 pt-28 sm:pt-40 md:pt-56 lg:pt-64 pb-24 sm:pb-36">
         
         {/* Hero Overlay Content - 100% Center Aligned */}
-        <div className="relative z-20 w-full max-w-[1500px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col items-center justify-center text-center">
+        <div className="relative z-20 w-full max-w-[1500px] mx-auto px-4 sm:px-8 md:px-12 lg:px-20 flex flex-col items-center justify-center text-center">
           
           {/* Transparent Brand Logo Stage */}
           <motion.div
@@ -152,24 +152,6 @@ export default function BrandLanding() {
           >
             {brand.subtitle}
           </motion.p>
-
-          {normalizedId === 'steni' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex items-center justify-center gap-4 mb-12"
-            >
-              <Link
-                to="/brands/steni/video"
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-sky-500/20 via-indigo-500/20 to-purple-500/20 hover:from-sky-500/30 hover:to-indigo-500/30 text-white font-mono text-xs tracking-widest uppercase border border-sky-500/40 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.25)] transition-all hover:scale-105"
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-ping" />
-                <span>Watch 8-Sec 9:16 Performance Reel</span>
-              </Link>
-            </motion.div>
-          )}
-
         </div>
 
         {/* Hero Slideshow Controls */}
@@ -483,24 +465,15 @@ export default function BrandLanding() {
               </a>
             </div>
 
-            {/* CENTERED CATALOGUE OPTIONS (HIDDEN BY DEFAULT - REVEALED ON HOVER) */}
+            {/* CENTERED CATALOGUE OPTIONS (ALWAYS ACCESSIBLE ON MOBILE, HOVER-REVEALED ON DESKTOP) */}
             {brandCatalogues.length > 1 && (
-              <motion.div 
-                initial={false}
-                animate={{ 
-                  opacity: isSectionHovered ? 1 : 0,
-                  y: isSectionHovered ? 0 : 18,
-                  height: isSectionHovered ? 'auto' : 0,
-                  marginTop: isSectionHovered ? 32 : 0
-                }}
-                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-3xl flex flex-col items-center justify-center text-center gap-3 mx-auto overflow-hidden pointer-events-auto"
-                style={{ pointerEvents: isSectionHovered ? 'auto' : 'none' }}
+              <div 
+                className="w-full max-w-3xl flex flex-col items-center justify-center text-center gap-3 mx-auto mt-8 transition-all duration-500"
               >
                 <div className="flex items-center justify-center gap-2 text-center mx-auto mb-1">
-                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
                   <h4 className="font-mono text-[11px] font-bold tracking-[0.2em] uppercase text-zinc-300 text-center">
-                    SELECT CATALOGUE TO PREVIEW & DOWNLOAD ({brandCatalogues.length})
+                    SELECT CATALOGUE ({brandCatalogues.length})
                   </h4>
                 </div>
 
@@ -552,7 +525,7 @@ export default function BrandLanding() {
                     );
                   })}
                 </div>
-              </motion.div>
+              </div>
             )}
 
           </div>

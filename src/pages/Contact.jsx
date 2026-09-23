@@ -39,17 +39,17 @@ export default function Contact() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:72px_72px]" />
 
       {/* Top Spacer for Fixed Nav */}
-      <div style={{ height: '110px', minHeight: '110px' }} className="w-full block shrink-0 pointer-events-none" />
+      <div className="w-full h-20 sm:h-28 md:h-[110px] shrink-0 pointer-events-none" />
 
-      {/* 1. HERO HEADER BANNER (CLEAN & COMPACT MINIMAL TYPOGRAPHY) */}
-      <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 text-center" style={{ marginBottom: '50px' }}>
+      {/* 1. HERO HEADER BANNER */}
+      <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-8 md:px-16 lg:px-24 text-center mb-6 sm:mb-10 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative py-4 text-center"
+          className="relative py-2 sm:py-4 text-center"
         >
-          <h1 className="font-primary text-3xl md:text-5xl font-extralight text-zinc-300 tracking-tight text-center">
+          <h1 className="font-primary text-2xl sm:text-4xl md:text-5xl font-extralight text-zinc-300 tracking-tight text-center">
             Get in Touch
           </h1>
         </motion.div>
@@ -57,10 +57,9 @@ export default function Contact() {
 
       {/* 2. MAIN TWO-COLUMN CONTACT SECTION */}
       <div
-        className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24"
-        style={{ marginBottom: '120px' }}
+        className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-8 md:px-16 lg:px-24 mb-16 sm:mb-24 md:mb-32"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-start">
 
           {/* LEFT COLUMN: COMPANY & CONTACT INFO (5 cols) */}
           <motion.div
@@ -70,31 +69,31 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 flex flex-col justify-start"
           >
-            <h2 className="font-primary text-2xl md:text-3xl lg:text-4xl font-extralight text-zinc-200 leading-tight tracking-tight mb-20 md:mb-28">
+            <h2 className="font-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extralight text-zinc-200 leading-tight tracking-tight mb-8 sm:mb-14 md:mb-20">
               Let's Discuss Next <br />
               <span className="font-light italic text-zinc-400">Projects</span>
             </h2>
 
-            {/* CONTACT INFO BLOCKS - COMPACT FONT & EXTENDED BREAK SPACING */}
-            <div className="space-y-16 md:space-y-20">
+            {/* CONTACT INFO BLOCKS */}
+            <div className="space-y-8 sm:space-y-12 md:space-y-16">
               
               {/* Phone Item */}
-              <div className="border-b border-white/10 pb-12 md:pb-14">
+              <div className="border-b border-white/10 pb-6 sm:pb-8 md:pb-12">
                 <motion.a
                   href="tel:+919731679545"
                   whileHover={{ x: 4 }}
-                  className="flex items-center gap-5 p-1 bg-transparent transition-all duration-300 group cursor-pointer"
+                  className="flex items-center gap-4 sm:gap-5 p-1 bg-transparent transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center shrink-0 group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-300">
                     <svg className="w-4 h-4 text-zinc-300 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <div className="space-y-1.5">
-                    <span className="font-mono text-[11px] text-zinc-500 font-normal block tracking-widest uppercase">
+                  <div className="space-y-1">
+                    <span className="font-mono text-[10px] sm:text-[11px] text-zinc-500 font-normal block tracking-widest uppercase">
                       Phone
                     </span>
-                    <span className="font-primary text-base md:text-lg font-light text-zinc-300 group-hover:text-white transition-colors block">
+                    <span className="font-primary text-sm sm:text-base md:text-lg font-light text-zinc-300 group-hover:text-white transition-colors block">
                       +91 97316 79545
                     </span>
                   </div>
@@ -102,36 +101,36 @@ export default function Contact() {
               </div>
 
               {/* Email Item */}
-              <div className="border-b border-white/10 pb-12 md:pb-14">
+              <div className="border-b border-white/10 pb-6 sm:pb-8 md:pb-12">
                 <motion.a
                   href="mailto:info@xteriohub.com"
                   whileHover={{ x: 4 }}
-                  className="flex items-center gap-5 p-1 bg-transparent transition-all duration-300 group cursor-pointer"
+                  className="flex items-center gap-4 sm:gap-5 p-1 bg-transparent transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center shrink-0 group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-300">
                     <svg className="w-4 h-4 text-zinc-300 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <div className="space-y-1.5">
-                    <span className="font-mono text-[11px] text-zinc-500 font-normal block tracking-widest uppercase">
+                  <div className="space-y-1">
+                    <span className="font-mono text-[10px] sm:text-[11px] text-zinc-500 font-normal block tracking-widest uppercase">
                       Email
                     </span>
-                    <span className="font-primary text-base md:text-lg font-light text-zinc-300 group-hover:text-white transition-colors block">
+                    <span className="font-primary text-sm sm:text-base md:text-lg font-light text-zinc-300 group-hover:text-white transition-colors block">
                       info@xteriohub.com
                     </span>
                   </div>
                 </motion.a>
               </div>
 
-              {/* Office Address Item */}
-              <div className="pb-4">
+              {/* Office Location Item */}
+              <div className="border-b border-white/10 pb-6 sm:pb-8 md:pb-12">
                 <motion.a
                   href="https://maps.google.com/?q=Indiranagar+2nd+stage+Bangalore"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 4 }}
-                  className="flex items-center gap-5 p-1 bg-transparent transition-all duration-300 group cursor-pointer"
+                  className="flex items-center gap-4 sm:gap-5 p-1 bg-transparent transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center shrink-0 group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-300">
                     <svg className="w-4 h-4 text-zinc-300 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,11 +138,11 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <div className="space-y-1.5">
-                    <span className="font-mono text-[11px] text-zinc-500 font-normal block tracking-widest uppercase">
+                  <div className="space-y-1">
+                    <span className="font-mono text-[10px] sm:text-[11px] text-zinc-500 font-normal block tracking-widest uppercase">
                       Office Location
                     </span>
-                    <span className="font-secondary text-xs md:text-sm text-zinc-300 font-light leading-relaxed block group-hover:text-white transition-colors">
+                    <span className="font-secondary text-xs sm:text-sm text-zinc-300 font-light leading-relaxed block group-hover:text-white transition-colors">
                       #52, 1st Floor, 3rd Cross, 10th Main, Indiranagar 2nd stage, Bangalore - 560038
                     </span>
                   </div>
@@ -163,7 +162,7 @@ export default function Contact() {
           >
             <div className="relative w-full bg-transparent">
               <div className="relative z-10 py-2">
-                <h3 className="font-primary text-xl md:text-2xl font-extralight text-zinc-300 tracking-tight mb-12">
+                <h3 className="font-primary text-lg sm:text-xl md:text-2xl font-extralight text-zinc-300 tracking-tight mb-8 sm:mb-12">
                   Write to Us
                 </h3>
 
@@ -182,10 +181,10 @@ export default function Contact() {
                     </p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-16 md:space-y-20 w-full">
+                  <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12 md:space-y-14 w-full">
                     {/* Q1: Your Name */}
-                    <div className="w-full border-b border-white/10 pb-12 md:pb-14">
-                      <label className="font-mono text-[11px] text-zinc-400 font-normal uppercase tracking-widest block mb-3">
+                    <div className="w-full border-b border-white/10 pb-6 sm:pb-8 md:pb-10">
+                      <label className="font-mono text-[10px] sm:text-[11px] text-zinc-400 font-normal uppercase tracking-widest block mb-2 sm:mb-3">
                         Your Name
                       </label>
                       <input
@@ -194,13 +193,13 @@ export default function Contact() {
                         placeholder="Enter your name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full h-12 md:h-13 px-5 bg-white/[0.04] border border-white/10 rounded-xl font-secondary text-xs md:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
+                        className="w-full h-11 sm:h-12 md:h-13 px-4 sm:px-5 bg-white/[0.04] border border-white/10 rounded-xl font-secondary text-xs md:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
                       />
                     </div>
 
                     {/* Q2: Email Address */}
-                    <div className="w-full border-b border-white/10 pb-12 md:pb-14">
-                      <label className="font-mono text-[11px] text-zinc-400 font-normal uppercase tracking-widest block mb-3">
+                    <div className="w-full border-b border-white/10 pb-6 sm:pb-8 md:pb-10">
+                      <label className="font-mono text-[10px] sm:text-[11px] text-zinc-400 font-normal uppercase tracking-widest block mb-2 sm:mb-3">
                         Email Address
                       </label>
                       <input
@@ -209,13 +208,13 @@ export default function Contact() {
                         placeholder="name@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full h-12 md:h-13 px-5 bg-white/[0.04] border border-white/10 rounded-xl font-secondary text-xs md:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
+                        className="w-full h-11 sm:h-12 md:h-13 px-4 sm:px-5 bg-white/[0.04] border border-white/10 rounded-xl font-secondary text-xs md:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
                       />
                     </div>
 
                     {/* Q3: Phone Number */}
-                    <div className="w-full border-b border-white/10 pb-12 md:pb-14">
-                      <label className="font-mono text-[11px] text-zinc-400 font-normal uppercase tracking-widest block mb-3">
+                    <div className="w-full border-b border-white/10 pb-6 sm:pb-8 md:pb-10">
+                      <label className="font-mono text-[10px] sm:text-[11px] text-zinc-400 font-normal uppercase tracking-widest block mb-2 sm:mb-3">
                         Phone Number
                       </label>
                       <input
@@ -224,30 +223,30 @@ export default function Contact() {
                         placeholder="+91 00000 00000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full h-12 md:h-13 px-5 bg-white/[0.04] border border-white/10 rounded-xl font-secondary text-xs md:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
+                        className="w-full h-11 sm:h-12 md:h-13 px-4 sm:px-5 bg-white/[0.04] border border-white/10 rounded-xl font-secondary text-xs md:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
                       />
                     </div>
 
                     {/* Q4: Project Overview */}
-                    <div className="w-full border-b border-white/10 pb-12 md:pb-14">
-                      <label className="font-mono text-[11px] text-zinc-400 font-normal uppercase tracking-widest block mb-3">
+                    <div className="w-full border-b border-white/10 pb-6 sm:pb-8 md:pb-10">
+                      <label className="font-mono text-[10px] sm:text-[11px] text-zinc-400 font-normal uppercase tracking-widest block mb-2 sm:mb-3">
                         Project Overview
                       </label>
                       <textarea
-                        rows={5}
+                        rows={4}
                         required
                         placeholder="Briefly describe your requirements..."
                         value={formData.overview}
                         onChange={(e) => setFormData({ ...formData, overview: e.target.value })}
-                        className="w-full p-5 bg-white/[0.04] border border-white/10 rounded-xl font-secondary text-xs md:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all resize-none"
+                        className="w-full p-4 sm:p-5 bg-white/[0.04] border border-white/10 rounded-xl font-secondary text-xs md:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="group inline-flex items-center gap-3 font-primary text-base md:text-lg font-light text-zinc-300 hover:text-white tracking-[0.2em] uppercase transition-colors cursor-pointer pt-4 bg-transparent border-none outline-none"
+                      className="group inline-flex items-center gap-3 font-primary text-sm sm:text-base md:text-lg font-light text-zinc-300 hover:text-white tracking-[0.2em] uppercase transition-colors cursor-pointer pt-2 sm:pt-4 bg-transparent border-none outline-none"
                     >
-                      Contact Us <span className="group-hover:translate-x-1.5 transition-transform">→</span>
+                      Send Message <span className="group-hover:translate-x-1.5 transition-transform">→</span>
                     </button>
                   </form>
                 )}
