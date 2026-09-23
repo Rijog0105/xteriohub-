@@ -48,12 +48,12 @@ export default function FeaturedProjects() {
   }, []);
 
   return (
-    <section className="relative py-20 sm:py-24 md:py-32 overflow-hidden bg-transparent z-10 transition-colors duration-1000">
+    <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden bg-transparent z-10 transition-colors duration-1000">
       
       <div className="max-w-[1500px] mx-auto px-5 sm:px-10 md:px-16 lg:px-24 relative z-10">
 
         {/* Minimalist Left-Aligned Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-24 gap-6 sm:gap-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 md:mb-20 gap-6 sm:gap-10">
           <div>
             <span className="font-secondary text-[11px] font-semibold tracking-[0.4em] uppercase block mb-3 sm:mb-4" style={{ color: '#0099E8' }}>
               PORTFOLIO
@@ -80,7 +80,7 @@ export default function FeaturedProjects() {
             {PROJECTS.map((proj) => (
               <div 
                 key={proj.id}
-                className="group relative flex flex-col justify-center py-7 sm:py-10 md:py-14 border-b border-white/10 cursor-pointer active:bg-white/[0.02] transition-colors"
+                className="group relative flex flex-col justify-center py-6 sm:py-10 md:py-14 border-b border-white/10 cursor-pointer active:bg-white/[0.02] transition-colors"
                 onMouseEnter={() => setHoveredProject(proj.id)}
                 onMouseLeave={() => setHoveredProject(null)}
                 onClick={() => handleProjectSelect(proj)}
@@ -89,10 +89,6 @@ export default function FeaturedProjects() {
                   <div className="flex items-center justify-between">
                     <span className="font-secondary text-[10px] tracking-[0.3em] uppercase text-accent opacity-75 group-hover:opacity-100 transition-opacity duration-500">
                       {proj.material}
-                    </span>
-                    {/* Mobile hint badge */}
-                    <span className="lg:hidden font-mono text-[9px] text-white/40 tracking-wider">
-                      Tap to preview
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
@@ -142,7 +138,7 @@ export default function FeaturedProjects() {
       </div>
 
       {/* ========================================================
-          MOBILE TOUCH PREVIEW POPUP IN FRONT (AUTOCLOSES AFTER 5 SECONDS)
+          MOBILE TOUCH PREVIEW POPUP IN FRONT (CLEAN PREVIEW WITHOUT TIMER UI)
          ======================================================== */}
       <AnimatePresence>
         {activeMobileProject && (
@@ -167,7 +163,7 @@ export default function FeaturedProjects() {
               {/* Top Bar inside card */}
               <div className="flex items-center justify-between mb-3 px-1">
                 <span className="font-mono text-[9px] font-bold tracking-[0.25em] text-sky-400 uppercase">
-                  {activeMobileProject.material} // PREVIEW
+                  {activeMobileProject.material}
                 </span>
                 <button
                   type="button"
@@ -199,22 +195,6 @@ export default function FeaturedProjects() {
                     {activeMobileProject.location}
                   </p>
                 </div>
-              </div>
-
-              {/* 5-Second Animated Shrinking Indicator Line */}
-              <div className="w-full mt-3.5 h-[2.5px] bg-white/10 rounded-full overflow-hidden">
-                <motion.div
-                  key={activeMobileProject.id}
-                  initial={{ width: '100%' }}
-                  animate={{ width: '0%' }}
-                  transition={{ duration: 5, ease: 'linear' }}
-                  className="h-full bg-sky-400 shadow-[0_0_8px_#0099E8]"
-                />
-              </div>
-
-              <div className="flex items-center justify-between mt-2 px-1 text-[9.5px] font-mono text-white/45">
-                <span>Closing in 5s...</span>
-                <span>Tap next to switch</span>
               </div>
             </motion.div>
           </motion.div>

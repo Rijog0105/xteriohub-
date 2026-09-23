@@ -12,8 +12,8 @@ import ProjectCTA from '../components/sections/ProjectCTA';
 import FinalCTA from '../components/sections/FinalCTA';
 
 const SectionDivider = () => (
-  <div className="w-full flex justify-center py-16 lg:py-32">
-    <div className="w-[1px] h-32 lg:h-48 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+  <div className="w-full flex justify-center py-6 sm:py-10 md:py-16 lg:py-28">
+    <div className="w-[1px] h-10 sm:h-16 lg:h-36 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
   </div>
 );
 

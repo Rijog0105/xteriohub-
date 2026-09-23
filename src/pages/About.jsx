@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -18,6 +18,7 @@ const fadeInScale = {
 export default function About() {
   const heroRef = useRef(null);
   const [hoveredCardIndex, setHoveredCardIndex] = useState(0);
+  const [mobileExpandedCard, setMobileExpandedCard] = useState(null); // All cards closed by default on phone
 
   const { scrollYProgress: heroScroll } = useScroll({
     target: heroRef,
@@ -404,14 +405,14 @@ export default function About() {
       </section>
 
       {/* Section Gap Divider */}
-      <div className="w-full flex justify-center py-12 lg:py-16 relative z-10">
-        <div className="w-[1px] h-24 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+      <div className="w-full flex justify-center py-6 sm:py-10 lg:py-16 relative z-10">
+        <div className="w-[1px] h-10 sm:h-16 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
       </div>
 
       {/* ========================================================
           SECTION 3: OUR PHILOSOPHY
          ======================================================== */}
-      <section className="relative py-20 lg:py-24 bg-transparent z-10 flex items-center justify-center text-center overflow-hidden">
+      <section className="relative py-10 sm:py-16 lg:py-24 bg-transparent z-10 flex items-center justify-center text-center overflow-hidden">
         
         {/* Subtle Ambient Background Light */}
         <div className="absolute inset-0 bg-radial-gradient from-white/10 via-transparent to-transparent opacity-50 pointer-events-none" />
@@ -447,14 +448,14 @@ export default function About() {
       </section>
 
       {/* Section Gap Divider */}
-      <div className="w-full flex justify-center py-12 lg:py-16 relative z-10">
-        <div className="w-[1px] h-24 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+      <div className="w-full flex justify-center py-6 sm:py-10 lg:py-16 relative z-10">
+        <div className="w-[1px] h-10 sm:h-16 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
       </div>
 
       {/* ========================================================
           SECTION 4: WHAT MAKES US DIFFERENT
          ======================================================== */}
-      <section className="relative py-20 lg:py-24 bg-transparent z-10">
+      <section className="relative py-10 sm:py-16 lg:py-24 bg-transparent z-10">
         <div className="max-w-[1500px] mx-auto px-8 md:px-16 lg:px-24">
           
           {/* 100% Full-Width Centered Section Header */}
@@ -524,14 +525,14 @@ export default function About() {
       </section>
 
       {/* Section Gap Divider */}
-      <div className="w-full flex justify-center py-12 lg:py-16 relative z-10">
-        <div className="w-[1px] h-24 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+      <div className="w-full flex justify-center py-6 sm:py-10 lg:py-16 relative z-10">
+        <div className="w-[1px] h-10 sm:h-16 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
       </div>
 
       {/* ========================================================
           SECTION 5: OUR APPROACH
          ======================================================== */}
-      <section className="relative py-20 lg:py-24 bg-transparent z-10">
+      <section className="relative py-10 sm:py-16 lg:py-24 bg-transparent z-10">
         <div className="max-w-[1500px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col items-center text-center">
           
           <div className="w-full flex flex-col items-center text-center mx-auto" style={{ marginBottom: "60px" }}>
@@ -644,14 +645,14 @@ export default function About() {
       </section>
 
       {/* Section Gap Divider */}
-      <div className="w-full flex justify-center py-12 lg:py-16 relative z-10">
-        <div className="w-[1px] h-24 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+      <div className="w-full flex justify-center py-6 sm:py-10 lg:py-16 relative z-10">
+        <div className="w-[1px] h-10 sm:h-16 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
       </div>
 
       {/* ========================================================
           SECTION 6: GLOBAL PARTNERSHIPS
          ======================================================== */}
-      <section className="relative py-20 lg:py-24 bg-transparent z-10 overflow-hidden">
+      <section className="relative py-10 sm:py-16 lg:py-24 bg-transparent z-10 overflow-hidden">
         
         {/* Subtle Map / Grid Background Overlay */}
         <div className="absolute inset-0 bg-grid-dots opacity-20 pointer-events-none" />
@@ -765,32 +766,140 @@ export default function About() {
       </section>
 
       {/* Section Gap Divider */}
-      <div className="w-full flex justify-center py-12 lg:py-16 relative z-10">
-        <div className="w-[1px] h-24 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+      <div className="w-full flex justify-center py-6 sm:py-10 lg:py-16 relative z-10">
+        <div className="w-[1px] h-10 sm:h-16 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
       </div>
 
       {/* ========================================================
           SECTION 7: WHY CLIENTS CHOOSE XTERIOHUB (3D STACKED DECK WITH HOVER IN-PLACE EXPANSION)
          ======================================================== */}
-      <section className="relative py-20 lg:py-28 bg-transparent z-10 overflow-hidden">
+      <section className="relative py-12 sm:py-16 lg:py-28 bg-transparent z-10 overflow-hidden">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 flex flex-col items-center text-center">
           
           {/* 100% Full-Width Centered Section Header */}
-          <div className="w-full flex flex-col items-center text-center mx-auto" style={{ marginBottom: "36px" }}>
+          <div className="w-full flex flex-col items-center text-center mx-auto mb-6 sm:mb-9">
             <span className="font-secondary text-[10px] font-bold tracking-[0.4em] uppercase text-gray-400 mb-3 block text-center w-full">
               PROVEN TRUST
             </span>
             <h2 className="font-primary text-2xl md:text-3xl lg:text-4xl font-extralight text-zinc-200 tracking-tight text-center w-full">
               Why Clients Choose XTERIOHUB
             </h2>
-            <p className="font-secondary text-xs md:text-sm text-white/60 font-light mt-2 tracking-widest uppercase">
+            <p className="font-secondary text-xs md:text-sm text-white/60 font-light mt-2 tracking-widest uppercase hidden md:block">
               Hover over side tabs in the 3D deck to expand feature details in place
+            </p>
+            <p className="font-secondary text-xs text-white/60 font-light mt-2 tracking-widest uppercase md:hidden">
+              Swipe right to browse • Tap card to open details
             </p>
             <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mt-4" />
           </div>
 
-          {/* 3D Offset Stacked Deck Canvas */}
-          <div className="relative w-full max-w-[1400px] mx-auto h-[480px] md:h-[520px] flex items-center justify-center py-6 px-4" style={{ marginTop: "10px" }}>
+          {/* ========================================================
+              MOBILE SWIPEABLE TRACK (md:hidden)
+              Everything closed by default, click/tap to open, swipe right scrollable
+             ======================================================== */}
+          <div className="md:hidden w-full">
+            <div 
+              data-lenis-prevent
+              className="w-full flex overflow-x-auto snap-x snap-mandatory gap-4 px-4 py-4 no-scrollbar touch-pan-x"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
+              {WHY_CHOOSE_US.map((item, idx) => {
+                const total = WHY_CHOOSE_US.length;
+                const isOpen = mobileExpandedCard === idx;
+
+                return (
+                  <div
+                    key={idx}
+                    onClick={() => setMobileExpandedCard(isOpen ? null : idx)}
+                    className={`shrink-0 w-[84vw] max-w-[320px] snap-center rounded-3xl border ${
+                      isOpen 
+                        ? 'border-sky-400/60 bg-[#090b10]/95 shadow-[0_15px_40px_rgba(0,153,232,0.25)]' 
+                        : 'border-white/15 bg-[#090b10]/80 shadow-xl'
+                    } backdrop-blur-2xl p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300 cursor-pointer min-h-[340px] text-left`}
+                  >
+                    {/* Card Background Image */}
+                    <div className="absolute inset-0 z-0">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className={`w-full h-full object-cover transition-all duration-500 ${
+                          isOpen ? 'opacity-40 scale-105' : 'opacity-20'
+                        }`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/40 pointer-events-none" />
+                    </div>
+
+                    {/* Top Tag Row */}
+                    <div className="relative z-10 flex items-center justify-between w-full">
+                      <span className="px-3 py-1 rounded-full bg-black/70 border border-white/20 font-mono text-[10px] font-bold text-gray-200">
+                        07.{idx + 1} // FEATURE
+                      </span>
+                      <span className="font-mono text-[10px] text-white/50">
+                        {idx + 1} of {total}
+                      </span>
+                    </div>
+
+                    {/* Middle Content */}
+                    <div className="relative z-10 my-auto pt-4 pb-2">
+                      <h3 className="font-primary text-xl font-medium text-white mb-2 leading-snug tracking-tight">
+                        {item.title}
+                      </h3>
+
+                      {/* Expandable Description - CLOSED by default */}
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.p
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="font-secondary text-xs text-white/90 font-light leading-relaxed pt-3 border-t border-white/15"
+                          >
+                            {item.desc}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                    {/* Bottom Action Hint */}
+                    <div className="relative z-10 pt-3 border-t border-white/10 flex items-center justify-between">
+                      <span className="font-mono text-[10px] tracking-wider text-sky-400 font-semibold uppercase">
+                        {isOpen ? 'Tap to close ↑' : 'Tap to open details ↓'}
+                      </span>
+                      <span className="text-white/40 text-xs">
+                        {isOpen ? '▲' : '▼'}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Mobile Swipe Navigation Dots */}
+            <div className="flex items-center justify-center gap-2 mt-4">
+              {WHY_CHOOSE_US.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setMobileExpandedCard(mobileExpandedCard === i ? null : i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    mobileExpandedCard === i
+                      ? 'w-6 bg-sky-400'
+                      : 'w-1.5 bg-white/30'
+                  }`}
+                  aria-label={`Select card ${i + 1}`}
+                />
+              ))}
+            </div>
+            <p className="font-mono text-[9px] text-white/40 tracking-widest uppercase mt-2">
+              Swipe right for more →
+            </p>
+          </div>
+
+          {/* ========================================================
+              DESKTOP 3D STACKED DECK (hidden md:flex) - Preserved exactly as desktop
+             ======================================================== */}
+          <div className="hidden md:flex relative w-full max-w-[1400px] mx-auto h-[480px] md:h-[520px] items-center justify-center py-6 px-4" style={{ marginTop: "10px" }}>
             <div className="relative w-[1150px] max-w-[95vw] h-[420px] md:h-[450px] flex items-center justify-start perspective-[1400px]">
               {WHY_CHOOSE_US.map((item, idx) => {
                 const total = WHY_CHOOSE_US.length;
@@ -893,8 +1002,8 @@ export default function About() {
             </div>
           </div>
 
-          {/* Indicator Navigation Dots */}
-          <div className="flex items-center justify-center gap-2.5 mt-8 z-20">
+          {/* Desktop Indicator Navigation Dots */}
+          <div className="hidden md:flex items-center justify-center gap-2.5 mt-8 z-20">
             {WHY_CHOOSE_US.map((_, i) => (
               <button
                 key={i}
@@ -914,8 +1023,8 @@ export default function About() {
       </section>
 
       {/* Section Gap Divider */}
-      <div className="w-full flex justify-center py-12 lg:py-16 relative z-10">
-        <div className="w-[1px] h-24 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
+      <div className="w-full flex justify-center py-6 sm:py-10 lg:py-16 relative z-10">
+        <div className="w-[1px] h-10 sm:h-16 lg:h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent" />
       </div>
 
       {/* ========================================================

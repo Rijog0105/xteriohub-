@@ -275,67 +275,59 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                   </button>
                 </div>
 
-                {/* Scrollable Links Area */}
+                {/* Scrollable Links Area - Exact Same Content as Laptop Navbar */}
                 <div
                   data-lenis-prevent
-                  className="flex-1 overflow-y-auto overscroll-contain px-5 sm:px-6 py-6 space-y-4 touch-pan-y"
+                  className="flex-1 overflow-y-auto overscroll-contain px-6 py-8 space-y-3 touch-pan-y"
                   style={{ WebkitOverflowScrolling: 'touch' }}
                 >
-                  {/* Category Title */}
-                  <div className="font-mono text-[10px] tracking-[0.25em] text-white/40 uppercase px-2 mb-1">
-                    Navigation Tabs
-                  </div>
-
-                  {/* Main Links */}
-                  <div className="space-y-1.5">
+                  {/* Main Links - Identical to Desktop NAV_LINKS */}
+                  <div className="space-y-2">
                     <Link
                       to="/"
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "flex items-center justify-between py-3.5 px-4 rounded-xl font-secondary text-sm font-semibold tracking-[0.15em] uppercase transition-colors touch-manipulation",
-                        location.pathname === '/' ? "bg-sky-500/15 text-sky-400 border border-sky-500/30" : "text-white/80 hover:bg-white/5 hover:text-white border border-transparent"
+                        "flex items-center justify-between py-3 px-3 rounded-lg font-secondary text-xs uppercase tracking-[0.2em] font-medium transition-colors touch-manipulation",
+                        location.pathname === '/' ? "text-white font-semibold bg-white/5" : "text-white/70 hover:text-white"
                       )}
                     >
                       <span>HOME</span>
-                      <span className="font-mono text-xs text-white/40">01</span>
                     </Link>
 
                     <Link
                       to="/about"
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "flex items-center justify-between py-3.5 px-4 rounded-xl font-secondary text-sm font-semibold tracking-[0.15em] uppercase transition-colors touch-manipulation",
-                        location.pathname === '/about' ? "bg-sky-500/15 text-sky-400 border border-sky-500/30" : "text-white/80 hover:bg-white/5 hover:text-white border border-transparent"
+                        "flex items-center justify-between py-3 px-3 rounded-lg font-secondary text-xs uppercase tracking-[0.2em] font-medium transition-colors touch-manipulation",
+                        location.pathname === '/about' ? "text-white font-semibold bg-white/5" : "text-white/70 hover:text-white"
                       )}
                     >
                       <span>ABOUT</span>
-                      <span className="font-mono text-xs text-white/40">02</span>
                     </Link>
 
                     {/* OUR BRANDS Expandable Accordion */}
-                    <div className="rounded-xl border border-white/10 bg-white/[0.02] overflow-hidden my-2">
+                    <div className="rounded-lg border border-white/10 bg-white/[0.02] overflow-hidden my-2">
                       <div className="flex items-center justify-between p-1">
                         <Link
                           to="/brands"
                           onClick={() => setMobileMenuOpen(false)}
                           className={cn(
-                            "flex-1 py-3 px-3.5 font-secondary text-sm font-semibold tracking-[0.15em] uppercase transition-colors touch-manipulation flex items-center gap-2",
-                            location.pathname.startsWith('/brands') ? "text-sky-400" : "text-white/90 hover:text-white"
+                            "flex-1 py-2.5 px-3 font-secondary text-xs uppercase tracking-[0.2em] font-medium transition-colors touch-manipulation flex items-center gap-2",
+                            location.pathname.startsWith('/brands') ? "text-white font-semibold" : "text-white/70 hover:text-white"
                           )}
                         >
                           <span>OUR BRANDS</span>
-                          <span className="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-400/20">4</span>
                         </Link>
                         <button
                           type="button"
                           onClick={() => setBrandsAccordionOpen(prev => !prev)}
-                          className="w-11 h-11 flex items-center justify-center text-white/60 hover:text-white transition-colors cursor-pointer touch-manipulation"
+                          className="w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors cursor-pointer touch-manipulation"
                           aria-label="Toggle brand sub-menu"
                         >
                           <motion.span
                             animate={{ rotate: brandsAccordionOpen ? 180 : 0 }}
                             transition={{ duration: 0.25 }}
-                            className="text-xs"
+                            className="text-[10px]"
                           >
                             ▼
                           </motion.span>
@@ -349,47 +341,37 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="px-3 pb-3 pt-1 space-y-2.5 border-t border-white/5"
+                            className="px-3 pb-3 pt-1 space-y-2 border-t border-white/5"
                           >
-                            <Link
-                              to="/brands"
-                              onClick={() => setMobileMenuOpen(false)}
-                              className="block py-2 px-2 font-mono text-[11px] text-sky-400 font-bold uppercase tracking-wider hover:underline"
-                            >
-                              → VIEW ALL BRANDS OVERVIEW
-                            </Link>
-
                             {[
-                              { name: 'FRONTEK', path: '/brands/frontek', type: 'Terracotta' },
-                              { name: 'TEMPIO', path: '/brands/tempio', type: 'Terracotta Skin' },
-                              { name: 'STENI', path: '/brands/steni', type: 'Stone Composite' },
-                              { name: 'TECHLAM', path: '/brands/techlam', type: 'Sintered Porcelain' }
+                              { name: 'FRONTEK', path: '/brands/frontek' },
+                              { name: 'TEMPIO', path: '/brands/tempio' },
+                              { name: 'STENI', path: '/brands/steni' },
+                              { name: 'TECHLAM', path: '/brands/techlam' }
                             ].map(b => (
-                              <div key={b.name} className="p-3 rounded-lg bg-black/40 border border-white/10 space-y-2">
-                                <div className="flex items-center justify-between">
-                                  <Link
-                                    to={b.path}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="font-mono text-xs font-bold text-white hover:text-sky-400 tracking-wider transition-colors py-1"
-                                  >
-                                    {b.name}
-                                  </Link>
-                                  <span className="font-mono text-[9px] text-white/40">{b.type}</span>
-                                </div>
+                              <div key={b.name} className="p-2.5 rounded-md bg-black/40 border border-white/10 space-y-1.5">
+                                <Link
+                                  to={b.path}
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className="font-mono text-xs font-bold text-white hover:text-sky-400 tracking-wider transition-colors block py-0.5"
+                                >
+                                  {b.name}
+                                </Link>
                                 <div className="flex items-center gap-3 pt-1 border-t border-white/5 flex-wrap">
                                   <Link
                                     to={`${b.path}/collections`}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="font-mono text-[11px] text-zinc-300 hover:text-sky-400 uppercase tracking-wider py-1 px-2 bg-white/5 rounded"
+                                    className="font-mono text-[10px] text-zinc-400 hover:text-white uppercase tracking-wider py-0.5"
                                   >
-                                    Collections →
+                                    Collections
                                   </Link>
+                                  <span className="text-white/20 text-xs">•</span>
                                   <Link
                                     to={`${b.path}/projects`}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="font-mono text-[11px] text-zinc-300 hover:text-sky-400 uppercase tracking-wider py-1 px-2 bg-white/5 rounded"
+                                    className="font-mono text-[10px] text-zinc-400 hover:text-white uppercase tracking-wider py-0.5"
                                   >
-                                    Projects →
+                                    Projects
                                   </Link>
                                 </div>
                               </div>
@@ -400,78 +382,25 @@ export default function Navbar({ visible = true, onOpenConsultation }) {
                     </div>
 
                     <Link
-                      to="/projects"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "flex items-center justify-between py-3.5 px-4 rounded-xl font-secondary text-sm font-semibold tracking-[0.15em] uppercase transition-colors touch-manipulation",
-                        location.pathname === '/projects' ? "bg-sky-500/15 text-sky-400 border border-sky-500/30" : "text-white/80 hover:bg-white/5 hover:text-white border border-transparent"
-                      )}
-                    >
-                      <span>PROJECTS</span>
-                      <span className="font-mono text-xs text-white/40">04</span>
-                    </Link>
-
-                    <Link
-                      to="/technology"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "flex items-center justify-between py-3.5 px-4 rounded-xl font-secondary text-sm font-semibold tracking-[0.15em] uppercase transition-colors touch-manipulation",
-                        location.pathname === '/technology' ? "bg-sky-500/15 text-sky-400 border border-sky-500/30" : "text-white/80 hover:bg-white/5 hover:text-white border border-transparent"
-                      )}
-                    >
-                      <span>TECHNOLOGY</span>
-                      <span className="font-mono text-xs text-white/40">05</span>
-                    </Link>
-
-                    <Link
-                      to="/downloads"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "flex items-center justify-between py-3.5 px-4 rounded-xl font-secondary text-sm font-semibold tracking-[0.15em] uppercase transition-colors touch-manipulation",
-                        location.pathname === '/downloads' ? "bg-sky-500/15 text-sky-400 border border-sky-500/30" : "text-white/80 hover:bg-white/5 hover:text-white border border-transparent"
-                      )}
-                    >
-                      <span>DOWNLOADS</span>
-                      <span className="font-mono text-xs text-white/40">06</span>
-                    </Link>
-
-                    <Link
                       to="/contact"
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "flex items-center justify-between py-3.5 px-4 rounded-xl font-secondary text-sm font-semibold tracking-[0.15em] uppercase transition-colors touch-manipulation",
-                        location.pathname === '/contact' ? "bg-sky-500/15 text-sky-400 border border-sky-500/30" : "text-white/80 hover:bg-white/5 hover:text-white border border-transparent"
+                        "flex items-center justify-between py-3 px-3 rounded-lg font-secondary text-xs uppercase tracking-[0.2em] font-medium transition-colors touch-manipulation",
+                        location.pathname === '/contact' ? "text-white font-semibold bg-white/5" : "text-white/70 hover:text-white"
                       )}
                     >
                       <span>CONTACT</span>
-                      <span className="font-mono text-xs text-white/40">07</span>
                     </Link>
                   </div>
 
-                  {/* Direct Consultation Button Inside Drawer */}
-                  <div className="pt-3">
+                  {/* Desktop-Identical Consultation CTA Button */}
+                  <div className="pt-6">
                     <button
                       onClick={handleConsultationClick}
-                      className="w-full py-4 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-400 text-black font-secondary text-xs font-bold tracking-[0.2em] uppercase shadow-[0_0_25px_rgba(0,153,232,0.4)] active:scale-95 transition-transform cursor-pointer touch-manipulation"
+                      className="w-full h-[46px] rounded-full font-secondary text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 active:scale-95 shadow-lg cursor-pointer bg-white text-black hover:bg-accent hover:text-white"
                     >
-                      Request Consultation
+                      Consultation
                     </button>
-                  </div>
-                </div>
-
-                {/* Bottom Info of Drawer */}
-                <div className="p-5 sm:p-6 border-t border-white/10 bg-black/60 space-y-2.5 shrink-0">
-                  <div className="flex items-center justify-between text-white/70 text-xs font-secondary">
-                    <span>Pan India Execution</span>
-                    <a href="tel:+919731679545" className="text-sky-400 hover:underline font-mono">
-                      +91 97316 79545
-                    </a>
-                  </div>
-                  <div className="flex items-center justify-between text-white/45 text-[11px] font-mono">
-                    <a href="mailto:info@xteriohub.com" className="hover:text-white transition-colors">
-                      info@xteriohub.com
-                    </a>
-                    <span>Bangalore, India</span>
                   </div>
                 </div>
               </motion.div>

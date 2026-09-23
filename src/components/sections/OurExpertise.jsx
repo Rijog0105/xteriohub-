@@ -86,10 +86,10 @@ export default function OurExpertise() {
   const containerRef = useRef(null);
   
   return (
-    <section ref={containerRef} className="relative py-16 bg-transparent z-10">
+    <section ref={containerRef} className="relative py-10 sm:py-16 md:py-20 bg-transparent z-10">
       <div className="max-w-[1500px] mx-auto px-6 md:px-16 lg:px-24 relative">
         
-        <div className="flex flex-col items-center text-center" style={{ marginBottom: '90px' }}>
+        <div className="flex flex-col items-center text-center mb-8 sm:mb-14 md:mb-20">
           <span className="font-secondary text-[10px] font-semibold tracking-[0.4em] uppercase block mb-3 text-cyan-400">
             OUR MATERIALS
           </span>

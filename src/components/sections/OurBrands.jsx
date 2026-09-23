@@ -24,7 +24,7 @@ export default function OurBrands() {
   const y2 = useTransform(scrollYProgress, [0, 1], [-45, 45]);
 
   return (
-    <section ref={containerRef} className="relative py-20 md:py-28 bg-transparent z-10 overflow-hidden mt-6 w-full flex flex-col items-center justify-center text-center">
+    <section ref={containerRef} className="relative py-10 sm:py-16 md:py-28 bg-transparent z-10 overflow-hidden mt-2 sm:mt-6 w-full flex flex-col items-center justify-center text-center">
       
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 relative z-10 flex flex-col items-center justify-center text-center">
         
